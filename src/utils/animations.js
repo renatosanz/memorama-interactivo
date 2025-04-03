@@ -14,6 +14,11 @@ export const containerVariants = {
       staggerChildren: 0.2,
     },
   },
+  exit: {
+    scale: 1.5,
+    opacity: 0,
+    transition: { duration: 1, ease: "easeInOut" },
+  },
 };
 
 export const itemVariants = {
@@ -62,4 +67,9 @@ export const buttonVariants = {
   },
   hover: { scale: 1.05 },
   tap: { scale: 0.95 },
+  exit: {
+    scale: 1.2,
+    opacity: 0,
+    transition: { duration: 0.8 },
+  },
 };
