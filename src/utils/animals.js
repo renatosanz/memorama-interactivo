@@ -23,7 +23,7 @@ export const animals = [
   {
     name: "erizo",
     img: "src/assets/img_animals/erizo.webp",
-    sound: "src/assets/sounds_animals/Erizo.mp3",
+    sound: "src/assets/sounds_animals/Erízo.mp3",
   },
   {
     name: "gallo",
@@ -61,9 +61,9 @@ export const animals = [
     sound: "src/assets/sounds_animals/Perro.mp3",
   },
   {
-    name: "dorado",
+    name: "pez dorado",
     img: "src/assets/img_animals/pez dorado.webp",
-    sound: "src/assets/sounds_animals/PezDorado.mp3",
+    sound: "src/assets/sounds_animals/Pez Dorado.mp3",
   },
   {
     name: "ratón",
