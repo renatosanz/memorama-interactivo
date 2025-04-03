@@ -1,0 +1,70 @@
+.texto-borde {
+  position: relative;
+  color: white;
+  padding: 10px;
+  display: inline-block;
+}
+
+.texto-borde::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e74c3c;
+  border: 2px solid #c0392b;
+  z-index: -1;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.boton-jugar {
+  /* Forma y tamaño */
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 50px;
+  
+  /* Colores vibrantes */
+  background: linear-gradient(145deg, #ff5e5e, #ff0000);
+  border: 5px solid #ffcccc;
+  box-shadow: 0 8px 0 #cc0000, 0 15px 20px rgba(0, 0, 0, 0.3);
+  
+  /* Texto */
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 3px 3px 0 #cc0000;
+  
+  /* Efectos interactivos */
+  cursor: pointer;
+  transition: all 0.1s ease;
+  position: relative;
+  top: 0;
+  
+  /* Estilo adicional infantil */
+  transform: rotate(-5deg);
+}
+
+.boton-jugar:hover {
+  background: linear-gradient(145deg, #ff0000, #ff5e5e);
+  text-shadow: 2px 2px 0 #cc0000;
+}
+
+.boton-jugar:active {
+  top: 8px;
+  box-shadow: 0 0 0 #cc0000, 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto extra de brillo */
+.boton-jugar::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50px;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+}
