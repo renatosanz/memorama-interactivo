@@ -8,7 +8,8 @@ import {
   buttonVariants,
 } from "../../utils/animations";
 import { difficultyCards } from "../../utils/difficultyCards";
-
+import HappyMusic from "../../assets/audio/happy-music.mp3";
+import BgLevels from "../../assets/img/bg-image-levels.webp";
 import "./Levels.css";
 
 import MusicPlayer from "../../partials/MusicPlayer";
@@ -26,7 +27,8 @@ export default function Levels() {
 
   return (
     <motion.main
-      className="w-screen h-screen flex flex-col bg-[url(src/assets/img/bg-image-levels.webp)] bg-no-repeat bg-bottom bg-cover"
+    style={{ backgroundImage: `url(${BgLevels})` }}
+      className="w-screen h-screen flex flex-col bg-no-repeat bg-bottom bg-cover"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -41,7 +43,7 @@ export default function Levels() {
           whileTap={{ scale: 0.9 }}
         ></motion.img>
         <motion.div variants={itemVariants}>
-          <MusicPlayer audio_file={"src/assets/audio/home-music.mp3"} />
+          <MusicPlayer audio_file={HappyMusic} />
         </motion.div>
       </div>
 

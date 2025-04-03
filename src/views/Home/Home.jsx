@@ -4,6 +4,8 @@ import "./Home.css";
 import MusicPlayer from "../../partials/MusicPlayer";
 import { useNavigate } from "react-router-dom";
 import { containerVariants, buttonVariants } from "../../utils/animations";
+import BgHome from "../../assets/img/bg-image-home.webp";
+import HappyMusic from "../../assets/audio/happy-music.mp3";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,12 +16,15 @@ export default function Home() {
     setTimeout(() => navigate("/niveles"), 1000); // Duración de la animación
   };
 
-
   return (
-    <motion.main animate={containerVariants} className="w-screen h-screen flex flex-col bg-[url(src/assets/img/bg-image-home.webp)] bg-no-repeat bg-bottom bg-cover overflow-hidden">
+    <motion.main
+      animate={containerVariants}
+      style={{ backgroundImage: `url(${BgHome})` }}
+      className={`w-screen h-screen flex flex-col bg-no-repeat bg-bottom bg-cover overflow-hidden`}
+    >
       <div className="w-screen flex p-4">
         <div className="ml-auto">
-          <MusicPlayer audio_file={"src/assets/audio/home-music.mp3"} />
+          <MusicPlayer audio_file={HappyMusic} />
         </div>
       </div>
 
