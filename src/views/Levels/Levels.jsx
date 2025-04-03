@@ -1,109 +1,28 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import {
+  containerVariants,
+  itemVariants,
+  cardVariants,
+  buttonVariants,
+} from "../../utils/animations";
+import { difficultyCards } from "../../utils/difficultyCards";
+
 import "./Levels.css";
+
 import MusicPlayer from "../../partials/MusicPlayer";
 import BackArrow from "../../assets/svgs/back-arrow.svg";
-import { useNavigate } from "react-router-dom";
 
 export default function Levels() {
   const navigate = useNavigate();
   const [selectedDifficulty, setSelectedDifficulty] = useState(null);
-
-  // Animaciones
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-      y: 0,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        when: "beforeChildren",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "backOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: (i) => ({
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delay: 0.3 + i * 0.2,
-        type: "spring",
-        stiffness: 300,
-      },
-    }),
-    hover: { scale: 1.05 },
-    tap: { scale: 0.95 },
-    selected: {
-      scale: 1.05,
-      boxShadow: "0 0 20px rgba(255, 255, 0, 0.7)",
-      borderColor: "#FFD700",
-    },
-  };
-
-  const buttonVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delay: 0.9,
-        type: "spring",
-        stiffness: 300,
-        damping: 10,
-      },
-    },
-    hover: { scale: 1.05 },
-    tap: { scale: 0.95 },
-  };
 
   const handleStartGame = () => {
     if (selectedDifficulty) {
       navigate("/juego", { state: { difficulty: selectedDifficulty } });
     }
   };
-
-  const difficultyCards = [
-    {
-      level: "Fácil",
-      animals: 4,
-      description: "4 pares de animales",
-      color: "bg-green-400",
-      emoji: "🐶🐱",
-    },
-    {
-      level: "Medio",
-      animals: 5,
-      description: "5 pares de animales",
-      color: "bg-yellow-400",
-      emoji: "🐵🐻",
-    },
-    {
-      level: "Difícil",
-      animals: 6,
-      description: "6 pares de animales",
-      color: "bg-red-400",
-      emoji: "🦁🐯",
-    },
-  ];
 
   return (
     <motion.main
