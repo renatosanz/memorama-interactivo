@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./Home.css";
 import MusicPlayer from "../../partials/MusicPlayer";
 import { useNavigate } from "react-router-dom";
+import { containerVariants, buttonVariants } from "../../utils/animations";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -13,28 +14,6 @@ export default function Home() {
     setTimeout(() => navigate("/niveles"), 1000); // Duración de la animación
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-    exit: {
-      scale: 1.5,
-      opacity: 0,
-      transition: { duration: 1, ease: "easeInOut" },
-    },
-  };
-
-  const buttonVariants = {
-    initial: { scale: 1 },
-    tap: { scale: 0.95 },
-    exit: {
-      scale: 1.2,
-      opacity: 0,
-      transition: { duration: 0.8 },
-    },
-  };
 
   return (
     <motion.main animate={containerVariants} className="w-screen h-screen flex flex-col bg-[url(src/assets/img/bg-image-home.webp)] bg-no-repeat bg-bottom bg-cover overflow-hidden">
