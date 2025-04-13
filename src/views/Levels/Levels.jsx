@@ -13,6 +13,7 @@ import BgLevels from "../../assets/img/bg-image-levels.webp";
 import "./Levels.css";
 
 import MusicPlayer from "../../partials/MusicPlayer";
+import click_sound from "../../assets/audio/button_sound.mp3";
 import BackArrow from "../../assets/svgs/back-arrow.svg";
 
 export default function Levels() {
@@ -21,13 +22,14 @@ export default function Levels() {
 
   const handleStartGame = () => {
     if (selectedDifficulty) {
+      new Audio(click_sound).play();
       navigate("/juego", { state: { difficulty: selectedDifficulty } });
     }
   };
 
   return (
     <motion.main
-    style={{ backgroundImage: `url(${BgLevels})` }}
+      style={{ backgroundImage: `url(${BgLevels})` }}
       className="w-screen h-screen flex flex-col bg-no-repeat bg-bottom bg-cover"
       initial="hidden"
       animate="visible"
@@ -37,7 +39,10 @@ export default function Levels() {
         <motion.img
           src={BackArrow}
           className="w-18 h-18 flex items-center justify-center text-white rounded-full shadow-lg transition-transform transform hover:scale-110"
-          onClick={() => window.history.back()}
+          onClick={() => {
+            new Audio(click_sound).play();
+            window.history.back();
+          }}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -75,7 +80,10 @@ export default function Levels() {
               animate="visible"
               whileHover="hover"
               whileTap="tap"
-              onClick={() => setSelectedDifficulty(card.level)}
+              onClick={() => {
+                new Audio(click_sound).play();
+                setSelectedDifficulty(card.level);
+              }}
             >
               <h2 className="text-2xl font-bold text-dark text-center mb-2">
                 {card.level}

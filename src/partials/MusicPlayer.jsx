@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import VolumeOn from "../assets/svgs/volume-on.svg";
 import VolumeOff from "../assets/svgs/volume-off.svg";
+import click_sound from "../assets/audio/button_sound.mp3";
 
 export default function MusicPlayer({ audio_file }) {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -8,6 +9,8 @@ export default function MusicPlayer({ audio_file }) {
   const audioRef = useRef(null);
 
   const togglePlay = () => {
+    new Audio(click_sound).play();
+
     if (isPlaying) {
       audioRef.current.pause();
     } else {

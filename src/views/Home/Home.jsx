@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { containerVariants, buttonVariants } from "../../utils/animations";
 import BgHome from "../../assets/img/bg-image-home.webp";
 import HappyMusic from "../../assets/audio/happy-music.mp3";
+import click_sound from "../../assets/audio/button_sound.mp3";
 
 export default function Home() {
   const navigate = useNavigate();
   const [isExiting, setIsExiting] = useState(false);
 
   const handlePlayClick = () => {
+    new Audio(click_sound).play();
     setIsExiting(true);
     setTimeout(() => navigate("/niveles"), 1000); // Duración de la animación
   };

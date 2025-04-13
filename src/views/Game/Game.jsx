@@ -7,6 +7,7 @@ import { getRandomAnimals } from "../../utils/animals";
 import BgGame from "../../assets/img/bg-image-game.webp";
 import HappyMusic from "../../assets/audio/happy-music.mp3";
 import WinModal from "../../partials/WinModal";
+import click_sound from "../../assets/audio/button_sound.mp3";
 
 export default function Game() {
   const location = useLocation();
@@ -74,7 +75,13 @@ export default function Game() {
 
   return (
     <GameLayout backgroundImage={BgGame}>
-      <GameHeader onBack={() => window.history.back()} musicFile={HappyMusic} />
+      <GameHeader
+        onBack={() => {
+          new Audio(click_sound).play();
+          window.history.back();
+        }}
+        musicFile={HappyMusic}
+      />
 
       <MemoryBoard
         cards={random_animal_list}
