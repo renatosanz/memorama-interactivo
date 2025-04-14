@@ -3,20 +3,19 @@ import { motion } from "framer-motion";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
 import LionWin from "/lion_win.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function WinModal({ onClose, show }) {
   const { width, height } = useWindowSize();
+  const navigate = useNavigate();
   const [showConfetti, setShowConfetti] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowConfetti(false);
-    }, 8000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   if (!show) return null;
+
+  const timer = setTimeout(() => {
+    setShowConfetti(false);
+  }, 8000);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -63,7 +62,7 @@ export default function WinModal({ onClose, show }) {
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               onClose();
-              window.location.href = "/niveles";
+              navigate("/niveles", { replace: true });
             }}
             className="bg-white text-purple-600 font-bold py-3 px-6 rounded-full text-lg shadow-md relative z-10 m-auto"
           >
