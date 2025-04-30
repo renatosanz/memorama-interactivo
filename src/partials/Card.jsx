@@ -5,12 +5,12 @@ export default function Card({
   backImage, 
   isFlipped, 
   onClick,
-  variants
+  variants,
+  style
 }) {
   return (
     <motion.div
-      className="relative rounded-lg shadow-lg cursor-pointer"
-      style={{ width: "10vw", height: "25vh" }}
+      className={`relative rounded-lg shadow-lg cursor-pointer ${style()}`}
       variants={variants}
     >
       <motion.div
